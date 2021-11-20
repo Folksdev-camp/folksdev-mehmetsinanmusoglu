@@ -15,7 +15,7 @@
 	<description>Blog Api </description>
 	<properties>
 		<java.version>11</java.version>
-		<kotlin.version>1.5.0-M2</kotlin.version>
+		<kotlin.version>1.5.31</kotlin.version>
 	</properties>
 	<dependencies>
 		<!-- SPRING -->
@@ -58,10 +58,21 @@
 		</dependency>
 
 		<!-- DB -->
+		<!--
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+		-->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
 		</dependency>
 
 		<!-- TEST -->
