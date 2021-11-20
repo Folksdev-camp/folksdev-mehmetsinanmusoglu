@@ -12,14 +12,18 @@ data class Post @JvmOverloads constructor(
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     val id: String? = "",
+
+    @Column(name = "title")
     val title: String,
+
+    @Column(name = "context")
     val context: String,
 
     @Column(name = "created_at")
-    val createDate: LocalDateTime = LocalDateTime.now(),
+    val createDate: LocalDateTime,
 
     @Column(name = "updated_at")
-    val updateDate: LocalDateTime = LocalDateTime.now(),
+    val updateDate: LocalDateTime,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")

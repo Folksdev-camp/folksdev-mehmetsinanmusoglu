@@ -15,6 +15,10 @@ data class Comment @JvmOverloads constructor(
     val id: String? = "",
     val context: String,
 
+    @Column(name = "create_date")
+    val createDate: LocalDateTime,
+    @Column(name = "update_date")
+    val updateDate: LocalDateTime,
 
 
     @ManyToOne(fetch = FetchType.LAZY)

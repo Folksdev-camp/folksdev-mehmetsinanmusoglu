@@ -9,6 +9,7 @@ import com.folksdev.blog.model.Post;
 import com.folksdev.blog.repository.PostRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -38,7 +39,7 @@ public class PostService {
         Post post = new Post(id,
                 updatePostRequest.getTitle(),
                 updatePostRequest.getContext(),
-                updatePostRequest.getCreatedAt(),
+                p.getCreateDate(),
                 updatePostRequest.getUpdatedAt(),
                 p.getUser(),
                 p.getComment(),
@@ -49,6 +50,8 @@ public class PostService {
        Post post = new Post(
                createPostRequest.getTitle(),
                createPostRequest.getContext(),
+               LocalDateTime.now(),
+               null,
                userService.findUserById(id),
                null
                );

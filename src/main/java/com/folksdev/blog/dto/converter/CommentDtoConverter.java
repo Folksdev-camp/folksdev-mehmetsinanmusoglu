@@ -14,7 +14,9 @@ public class CommentDtoConverter {
     public CommentDto convert(Comment from){
         return new CommentDto(
                 from.getId(),
-                from.getContext()
+                from.getContext(),
+                from.getCreateDate(),
+                from.getUpdateDate()
         );
     }
     public List<CommentDto> convertToCommentDtoList(List<Comment> comments) {

@@ -39,6 +39,8 @@ public class CommentService {
     public CommentDto createComment(String userid, String postid, CreateCommentRequest createCommentRequest) {
         Comment comment = new Comment(
                 createCommentRequest.getContext(),
+                LocalDateTime.now(),
+                null,
                 postService.findPostById(postid),
                 userService.findUserById(userid));
         return commentDtoConverter.convert(commentRepository.save(comment));
@@ -48,6 +50,8 @@ public class CommentService {
         Comment c = findCommentById(id);
         Comment comment = new Comment(id,
                 updateCommentRequest.getContext(),
+                c.getCreateDate(),
+                LocalDateTime.now(),
                 c.getPost(),
                 c.getUser());
         return commentDtoConverter.convert(commentRepository.save(comment));

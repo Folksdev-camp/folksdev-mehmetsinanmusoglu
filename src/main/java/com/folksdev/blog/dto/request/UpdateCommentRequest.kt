@@ -6,4 +6,7 @@ import javax.validation.constraints.NotBlank
 data class UpdateCommentRequest @JvmOverloads constructor(
     @field: NotBlank
     val context: String,
+
+    @field: NotBlank
+    val updateDate: LocalDateTime,
 )

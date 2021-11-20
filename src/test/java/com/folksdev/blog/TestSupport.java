@@ -66,11 +66,15 @@ public class TestSupport {
                 updateUserRequest.getPassword()
         );
     }
-    // POST TEST SUPPORT
+
+
+    // POST TEST SUPPORT--------------------------------------------------------------------------------------
     public Post generatePost() {
         return new Post(
                 "title",
                 "context",
+                dateTime,
+                dateTime,
                 generateUser(),
                 null
         );
@@ -114,11 +118,14 @@ public class TestSupport {
         PostDto postDto = generatePostDto();
         return List.of(postDto);
     }
-    // Comment TEST SUPPORT
+
+    // Comment TEST SUPPORT-------------------------------------------------------------------------------
 
     public Comment generateComment(){
         return new Comment(
                 "context",
+                dateTime,
+                dateTime,
                 generatePost(),
                 generateUser()
         );
@@ -127,17 +134,20 @@ public class TestSupport {
         return new CommentDto(
                 "id",
                 "context",
+                dateTime,
+                dateTime,
                 generateUserDto()
         );
     }
     public CreateCommentRequest generateCreateCommentRequest(){
         return new CreateCommentRequest(
                 generateUserDto().getId(),
-                "context"
+                "context",
+                dateTime
         );
     }
     public UpdateCommentRequest generateUpdateCommentRequest(){
-        return new UpdateCommentRequest("context");
+        return new UpdateCommentRequest("context",dateTime);
     }
     public List<Comment> generateListOfComment() {
         Comment comment = generateComment();

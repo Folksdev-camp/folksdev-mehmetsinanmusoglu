@@ -10,5 +10,6 @@ data class CreateCommentRequest @JvmOverloads constructor(
     @field: NotBlank
     val context: String,
 
-
+    @field: NotBlank
+    val createDate: LocalDateTime
 )

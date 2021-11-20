@@ -28,7 +28,9 @@ public class PostDtoConverter {
                         .stream()
                         .map(c -> new CommentDto(
                                 c.getId(),
-                                c.getContext()
+                                c.getContext(),
+                                c.getCreateDate(),
+                                c.getUpdateDate()
                         )).collect(Collectors.toList())
         );
     }

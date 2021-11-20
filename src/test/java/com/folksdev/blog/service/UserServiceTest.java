@@ -112,13 +112,13 @@ class UserServiceTest extends TestSupport {
 
         User user = generateUser();
 
-        Mockito.when(userRepository.findById(user.getId())).thenReturn(Optional.of(user));
+        Mockito.when(userRepository.findById("id")).thenReturn(Optional.of(user));
 
-        String result = userService.deleteUser(user.getId());
+        String result = userService.deleteUser("id");
 
         assertEquals("deleted", result);
 
-        Mockito.verify(userRepository).findById(user.getId());
+        Mockito.verify(userRepository).findById("id");
     }
 
 
@@ -129,7 +129,7 @@ class UserServiceTest extends TestSupport {
         User updatedUser = generateUpdatedUser("id", generateUpdateUserRequest());
         UserDto userDto = generateUserDto();
 
-        Mockito.when(userRepository.findById(updatedUser.getId())).thenReturn(Optional.of(updatedUser));
+        Mockito.when(userRepository.findById("id")).thenReturn(Optional.of(updatedUser));
         Mockito.when(userRepository.save(updatedUser)).thenReturn(updatedUser);
         Mockito.when(userDtoConverter.convert(updatedUser)).thenReturn(userDto);
 
